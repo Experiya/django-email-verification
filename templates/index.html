@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+{%block title%}Home{%endblock%}
+{%block body%}
+<div class="w-full p-6 flex justify-center items-center">
+    <a href="/sign-up" class="px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md dark:bg-gray-800 hover:bg-blue-500 dark:hover:bg-gray-700 focus:outline-none focus:bg-blue-500 dark:focus:bg-gray-700">
+        Try Email verification
+    </a>
+</div>
+{%if text%}
+<div class="">
+    <div class="min-h-20 w-full p-6 flex justify-center items-center">
+        <div class="w-full max-w-xs">
+            <div class="bg-white border p-8 shadow rounded w-full mb-6">
+                <h1 class="mb-6 text-lg  font-thin {{color}}">Congratulation</h1>
+                 <p>{{text}}<br> {{name}}</p>
+                </h1>
+            <div>
+        <div>
+    <div>
+<div>
+{%endif%}
+
+{%if data%}
+<h1 class="text-xl py-20 text-center font-medium text-gray-800 md:text-3xl dark:text-white">
+                People who tested this verification
+</h1>
+{%endif%}
+
+{% for i in data%}
+
+    <div class="w-full max-w-sm px-4 py-3 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+
+        <div>
+            <h1 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">{{i.user.username}}</h1>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">{{i.created_at}}</p>
+        </div>
+
+    </div>
+{%endfor%}
+{%endblock%}
